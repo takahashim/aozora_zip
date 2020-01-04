@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require "aozora_zip"
+
+AozoraZip::CLI.start(ARGV)
