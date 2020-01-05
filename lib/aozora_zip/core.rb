@@ -32,6 +32,10 @@ module AozoraZip
       path.relative_path_from(dir).to_s
     end
 
+    def text
+      AozoraZip::Text.new(text_file, self)
+    end
+
     def zip(filename, force: nil, verbose: nil)
       if File.exist?(filename) && !force
         raise AozoraZip::Error, "target file '#{filename}' already exists"
@@ -79,7 +83,7 @@ module AozoraZip
 
           FileUtils.mkdir_p(File.dirname(filepath))
           entry.extract(filepath)
-          ::FileUtils.touch(filepath, mtime: entry.time)
+          FileUtils.touch(filepath, mtime: entry.time)
         end
       end
 

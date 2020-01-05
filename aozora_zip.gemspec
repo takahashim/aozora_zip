@@ -25,4 +25,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "thor", "~> 1.0"
   spec.add_dependency "rubyzip", "~> 2.0"
+  spec.add_development_dependency "diff-lcs", "~> 1.3"
 end
