@@ -52,7 +52,7 @@ module AozoraZip
       updated_footer = updated.slice(@text.footer_pos, updated.size - @text.footer_pos)
       original_footer = @text.content.slice(@text.footer_pos, @text.content.size - @text.footer_pos)
       diff = Diff::LCS.diff(updated_footer, original_footer)
-      diff_ary = diff.flatten.map(&:to_a)
+      diff_ary = diff.flatten(1).map(&:to_a)
       expected = [["-", 547, "2"],
                   ["-", 548, "0"],
                   ["+", 547, "1"],
